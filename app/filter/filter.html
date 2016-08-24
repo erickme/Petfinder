@@ -1,0 +1,32 @@
+<form name="filterForm" layout="column" layout-gt-sm="row">
+    <div flex layout="column" layout-gt-sm="row">
+        <md-input-container flex>
+            <label>Type</label>
+            <md-select name="type" ng-model="filter.type" ng-change="getBreeds()">
+                <md-option>Any</md-option>
+                <md-option value="dog">Dog</md-option>
+                <md-option value="cat">Cat</md-option>
+                <md-option value="rabbit">Rabbit</md-option>
+                <md-option value="smallfurry">Small & Furry</md-option>
+                <md-option value="horse">Horse</md-option>
+                <md-option value="bird">Bird</md-option>
+                <md-option value="reptile">Reptile</md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Breed</label>
+            <md-select name="breed" ng-model="filter.breed" ng-disabled="!breeds">
+                <md-option>Any</md-option>
+                <md-option ng-repeat="breed in breeds" value="{{breed.$t}}">{{breed.$t}}</md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container>
+            <label>Zip Code</label>
+            <input required type="number" name="zipcode" ng-model="filter.location" />
+        </md-input-container>
+    </div>
+    <div layout="row" layout-align="end center">
+        <md-button ng-click="search()" ng-disabled="filterForm.$invalid" class="md-raised md-primary">Search</md-button>
+        <md-button ng-click="random()" class="md-raised md-primary">Feeling Lucky</md-button>
+    </div>
+</form>    

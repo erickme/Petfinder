@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html ng-app="petfinder">
+<head>
+    <title>PetFinder</title>
+    <meta charset="utf-8" />
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link href="app/app.css" rel="stylesheet" />
+    <link href="app/details/details.css" rel="stylesheet" />
+</head>
+<body ng-cloak>
+    <md-toolbar id="navbar" layout-padding>
+        <h2>
+            <span ui-sref="petfinder.index">Pet Finder</span>
+        </h2>
+    </md-toolbar>
+    <div ui-view layout-padding id="main-view"></div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <!-- bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- APP -->
+    <script src="app/app.js"></script>
+    <script src="app/app.config.js"></script>
+
+    <script src="app/results/results.module.js"></script>
+    <script src="app/results/results.config.js"></script>
+    <script src="app/results/results.controller.js"></script>
+    <script src="app/results/results.factory.js"></script>
+    <script src="app/filter/filter.module.js"></script>
+    <script src="app/filter/filter.controller.js"></script>
+    <script src="app/filter/filter.factory.js"></script>
+    <script src="app/details/details.module.js"></script>
+    <script src="app/details/details.config.js"></script>
+    <script src="app/details/details.controller.js"></script>
+    <script src="app/details/details.factory.js"></script>
+
+</body>
+</html>

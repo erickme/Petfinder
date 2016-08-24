@@ -1,0 +1,17 @@
+﻿<md-card class="details">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{pet.name.$t}}</span>
+            <span class="md-subhead">{{pet.animal.$t}}  |  {{pet.breeds.breed.$t}}  |  {{ pet.age.$t }}  |  Sex: {{ pet.sex.$t }}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content layout="column" layout-gt-sm="row">
+        <div flex="33" class="md-media-xl card-media" ng-if="pet.media.photos">
+            <img ng-src="{{pet.media.photos.photo[0].$t}}" class="md-card-image img-responsive" alt="{{pet.name.$t}}" style="width:100%">
+        </div>
+        <div flex layout-padding>
+            <h3>About {{pet.name.$t}}</h3>
+            {{pet.description.$t}}
+        </div>
+    </md-card-content>
+</md-card>

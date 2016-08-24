@@ -1,0 +1,22 @@
+﻿
+<div flex ng-if="petList" class="row">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3" ng-repeat="pet in petList" layout-padding>
+        <md-list-item class="md-3-line md-whiteframe-2dp" ng-click="onPetclick(pet.id.$t)">
+            <img ng-src="{{pet.media.photos.photo[0].$t}}" class="md-avatar" alt="{{pet.name.$t}}" />
+            <div class="md-list-item-text" layout="column">
+                <h3>{{ pet.name.$t }}</h3>
+                <h4>{{ pet.breeds.breed.$t }}</h4>
+                <p>{{ pet.age.$t }}</p>
+                <p>Sex: {{ pet.sex.$t }}</p>
+            </div>
+        </md-list-item>
+    </div>
+</div>
+
+<div ng-if="!petList && !noResults">
+    Loading
+</div>
+
+<div ng-if="!petList && noResults">
+    No Results
+</div>
