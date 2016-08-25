@@ -36,7 +36,7 @@
 
         //returns list of breeds
         function getBreeds() {
-            FilterService.getBreeds(null)//$scope.filter.type)
+            FilterService.getBreeds($scope.filter.type)
                 .then(function (response) {
                     loadBreeds(response);
                 })
