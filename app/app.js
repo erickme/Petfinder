@@ -4,8 +4,8 @@
     angular.module('petfinder', [
         //angular modules
         'ngMaterial',
-        //'ngSanitize',
         'ui.router',
+        //custom modules
         'petfinder.filter',
         'petfinder.results',
         'petfinder.details'

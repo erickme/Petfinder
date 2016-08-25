@@ -5,22 +5,20 @@
         .module('petfinder.details')
         .factory('DetailsService', detailsService);
 
-    detailsService.$inject = ['$http'];
+    detailsService.$inject = ['$http', 'apiUrl', 'apiDefaultArgs'];
 
-    function detailsService($http) {
-        var url = 'http://api.petfinder.com/';
-        var defaultArgs = '?format=json&key=1f0c7f48315c13e63b7b7923cacc7959';
-
+    function detailsService($http, apiUrl, apiDefaultArgs) {
         var service = {
             getPet: getPet
         };
 
         return service;
 
+        //returns pet details
         function getPet(id) {
             var args = '&id='+id;
 
-            return $http.jsonp(url + 'pet.get' + defaultArgs + args + '&callback=JSON_CALLBACK');
+            return $http.jsonp(apiUrl + 'pet.get' + apiDefaultArgs + args + '&callback=JSON_CALLBACK');
         }
     }
 })();

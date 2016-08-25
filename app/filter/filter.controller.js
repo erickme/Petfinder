@@ -8,23 +8,35 @@
     filterController.$inject = ['$scope', '$state', 'FilterService', '$stateParams'];
 
     function filterController($scope, $state, FilterService, $stateParams) {
+        //intial load
+        load();
+
+        //method declaration
         $scope.getBreeds = getBreeds;
         $scope.search = search;
         $scope.random = random;
 
-        $scope.filter = {};
-        if ($stateParams.type)
-            $scope.filter.type = $stateParams.type;
-        if ($stateParams.breed)
-            $scope.filter.breed = $stateParams.breed;
-        if ($stateParams.location)
-            $scope.filter.location = Number($stateParams.location);
+        //initialize scope variable
+        $scope.breeds = [];
 
-        if ($scope.filter.type)
-            getBreeds();
+        function load() {
+            //loads filter selections based on state parameters
+            $scope.filter = {};
+            if ($stateParams.type)
+                $scope.filter.type = $stateParams.type;
+            if ($stateParams.breed)
+                $scope.filter.breed = $stateParams.breed;
+            if ($stateParams.location)
+                $scope.filter.location = Number($stateParams.location);
 
+            //it will get breeds if a type is selected
+            if ($scope.filter.type)
+                getBreeds();
+        }
+
+        //returns list of breeds
         function getBreeds() {
-            FilterService.getBreeds($scope.filter.type)
+            FilterService.getBreeds(null)//$scope.filter.type)
                 .then(function (response) {
                     loadBreeds(response);
                 })
@@ -33,10 +45,12 @@
                 });
         }
 
+        //redirects user to results page on search and passes the filter parameters
         function search() {
             $state.go('petfinder.results', { type: $scope.filter.type, breed: $scope.filter.breed, location: $scope.filter.location });
         }
 
+        //gets random pet id and redirects user to pet details page
         function random() {
             FilterService.getRandom($scope.filter)
                 .then(function (response) {
@@ -48,6 +62,7 @@
                 });
         }
 
+        //reads API response and loads breeds into the scope
         function loadBreeds(response) {
             $scope.breeds = response.data.petfinder.breeds.breed;
         }

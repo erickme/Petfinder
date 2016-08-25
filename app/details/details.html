@@ -1,8 +1,13 @@
-﻿<md-card class="details">
+﻿<div aria-label="Return" layout="row" layout-align="start center">
+    <a onclick="history.go(-1);" layout="row" layout-align="start center" href="#">
+        <i class="material-icons">keyboard_arrow_left</i> <div>Return Results</div>
+    </a>
+</div>
+<md-card class="details">
     <md-card-title>
         <md-card-title-text>
             <span class="md-headline">{{pet.name.$t}}</span>
-            <span class="md-subhead">{{pet.animal.$t}}  |  {{pet.breeds.breed.$t}}  |  {{ pet.age.$t }}  |  Gender: {{ pet.sex.$t }}</span>
+            <span class="md-subhead">{{pet.animal.$t}}  <span ng-if="pet.breeds.breed.$t">|  {{pet.breeds.breed.$t}}</span>  <span ng-if="pet.age.$t">|  {{ pet.age.$t }}</span>  <span ng-if="pet.sex.$t">|  Gender: {{ pet.sex.$t }}</span></span>
         </md-card-title-text>
     </md-card-title>
     <md-card-content layout="column" layout-gt-sm="row">

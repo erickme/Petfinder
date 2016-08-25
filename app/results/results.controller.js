@@ -8,16 +8,20 @@
     resultsController.$inject = ['$scope', '$state', 'ResultsService', '$stateParams'];
 
     function resultsController($scope, $state, ResultsService, $stateParams) {
+        //intial load
         loadResults();
 
+        //method declaration
         $scope.onPetclick = onPetclick;
         $scope.numberOfPages = numberOfPages;
 
+        //scope variables initialization
         $scope.noResults = false;
         $scope.currentPage = 0;
         $scope.pageSize = 12;
         $scope.petList = [];
 
+        //makes call to api to retrieve Pet list based in the parameters pased
         function loadResults() {
             ResultsService.getPets($stateParams)
                 .then(function (response) {
@@ -28,6 +32,7 @@
                 });
         }
 
+        //reads service response and loads it in the scope
         function loadPets(response) {
             if (response.data.petfinder.pets)
                 $scope.petList = response.data.petfinder.pets.pet;
@@ -35,10 +40,12 @@
                 $scope.noResults = true;
         }
 
+        //redirects user to the clicked pet details page
         function onPetclick(id) {
             $state.go('petfinder.details', { id: id });
         }
 
+        //calculates the number of pages
         function numberOfPages() {
             return Math.ceil($scope.petList.length / $scope.pageSize);
         }

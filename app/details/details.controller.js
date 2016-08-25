@@ -7,9 +7,11 @@
 
     detailsController.$inject = ['$scope', '$stateParams', 'DetailsService'];
 
-    function detailsController($scope, $stateParams, DetailsService) {
+    function detailsController(DetailsService) {
+        //initial load
         load();
 
+        //gets pet details
         function load() {
             DetailsService.getPet($stateParams.id)
                 .then(function (response) {
@@ -20,6 +22,7 @@
                 });
         }
 
+        //reads API response and loads pet details into scope
         function loadPet(response) {
             $scope.pet = response.data.petfinder.pet;
         }

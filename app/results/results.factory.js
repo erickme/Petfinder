@@ -5,18 +5,16 @@
         .module('petfinder.results')
         .factory('ResultsService', resultsService);
 
-    resultsService.$inject = ['$http'];
+    resultsService.$inject = ['$http', 'apiUrl', 'apiDefaultArgs'];
 
-    function resultsService($http) {
-        var url = 'http://api.petfinder.com/';
-        var defaultArgs = '?format=json&key=1f0c7f48315c13e63b7b7923cacc7959';
-
+    function resultsService($http, apiUrl, apiDefaultArgs) {
         var service = {
             getPets: getPets
         };
 
         return service;
 
+        //Retrieves Pet List based on filters
         function getPets(filter) {
             var args = '';
             if (filter.type)
@@ -24,7 +22,7 @@
             if (filter.breed)
                 args += '&breed=' + filter.breed;
             args += '&location=' + filter.location;
-            return $http.jsonp(url + 'pet.find' + defaultArgs + args + '&callback=JSON_CALLBACK');
+            return $http.jsonp(apiUrl + 'pet.find' + apiDefaultArgs + args + '&callback=JSON_CALLBACK');
         }
     }
 })();

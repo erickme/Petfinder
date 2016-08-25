@@ -4,6 +4,7 @@
     angular.module('petfinder.results')
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider
+                //state for results page
                 .state('petfinder.results', {
                     url: '/results?loc=:location&t=:type&b=:breed',
                     views: {
