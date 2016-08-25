@@ -11,8 +11,12 @@
         loadResults();
 
         $scope.onPetclick = onPetclick;
+        $scope.numberOfPages = numberOfPages;
 
         $scope.noResults = false;
+        $scope.currentPage = 0;
+        $scope.pageSize = 12;
+        $scope.petList = [];
 
         function loadResults() {
             ResultsService.getPets($stateParams)
@@ -33,6 +37,10 @@
 
         function onPetclick(id) {
             $state.go('petfinder.details', { id: id });
+        }
+
+        function numberOfPages() {
+            return Math.ceil($scope.petList.length / $scope.pageSize);
         }
     }
 })();
