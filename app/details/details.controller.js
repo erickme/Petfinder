@@ -7,7 +7,7 @@
 
     detailsController.$inject = ['$scope', '$stateParams', 'DetailsService'];
 
-    function detailsController(DetailsService) {
+    function detailsController($scope, $stateParams, DetailsService) {
         //initial load
         load();
 
