@@ -14,6 +14,8 @@
         //method declaration
         $scope.onPetclick = onPetclick;
         $scope.numberOfPages = numberOfPages;
+        $scope.nextPage = nextPage;
+        $scope.previousPage = previousPage;
 
         //scope variables initialization
         $scope.noResults = false;
@@ -48,6 +50,14 @@
         //calculates the number of pages
         function numberOfPages() {
             return Math.ceil($scope.petList.length / $scope.pageSize);
+        }
+
+        function nextPage() {
+            $scope.currentPage++;
+        }
+
+        function previousPage() {
+            $scope.currentPage--;
         }
     }
 })();
