@@ -1,4 +1,4 @@
-﻿<div layout="row" layout-align="end center">
+﻿<div layout="row" layout-align="end center" ng-if="petList">
     <md-input-container>
         <label>Order By</label>
         <md-select name="type" ng-model="orderBy">
@@ -23,7 +23,7 @@
         </md-list-item>
     </div>
 </div>
-<div layout="row" layout-align="center center">
+<div layout="row" layout-align="center center" ng-if="petList">
     <md-button class="md-icon-button md-primary" aria-label="Previous" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
         <i class="material-icons">keyboard_arrow_left</i>
     </md-button>
