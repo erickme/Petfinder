@@ -21,5 +21,5 @@
         }])
         //app contants definitions
         .constant('apiUrl', 'http://api.petfinder.com/')
-        .constant('apiDefaultArgs', 'http://api.petfinder.com/')
+        .constant('apiDefaultArgs', '?format=json&key=1f0c7f48315c13e63b7b7923cacc7959')
 })();
